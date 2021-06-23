@@ -1,0 +1,13 @@
+body {
+  background-color: #f7f7f7;
+}
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.image {
+  width: 300px;
+}
