@@ -1,23 +1,19 @@
 import React from "react";
-import {
-  Card,
-  Typography,
-  CardContent,
-  Grid,
-  CircularProgress,
-} from "@material-ui/core";
+import { Card, Typography, CardContent, Grid } from "@material-ui/core";
 import styles from "./Cards.module.css";
 import CountUp from "react-countup";
 import cx from "classnames";
+import Loading from "./Loading";
+import Skeleton from "react-loading-skeleton";
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   if (!confirmed) {
-    return <CircularProgress />;
+    return <Loading />;
   }
 
   return (
     <div className={styles.container}>
-      <Grid container spacing={2} justify="center">
+      <Grid container spacing={2}>
         {/* Infected Card */}
         <Grid
           item
@@ -28,7 +24,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Infected
+              {confirmed ? "Infected" : <Skeleton width={70} height={10} />}
             </Typography>
             <Typography variant="h5" component="h2">
               <CountUp start={0} end={confirmed.value} separator="," />
