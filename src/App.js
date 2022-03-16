@@ -1,4 +1,5 @@
 import { React, Component } from "react";
+import { Container } from "@material-ui/core";
 import { Cards, Charts, CountryPicker } from "./components";
 import styles from "./App.module.css";
 import { fetchData } from "./api";
@@ -27,11 +28,14 @@ class App extends Component {
     return (
       <>
         <Header />
-        <main className={styles.app}>
-          <Cards data={data} />
-          <CountryPicker handleCountryChange={this.handleCountryChange} />
-          <Charts data={data} country={country} />
-        </main>
+        <Container>
+          <main className={styles.app}>
+            <Cards data={data} />
+            <CountryPicker handleCountryChange={this.handleCountryChange} />
+            <Charts data={data} country={country} />
+          </main>
+        </Container>
+
         <Footer />
       </>
     );

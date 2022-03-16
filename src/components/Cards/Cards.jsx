@@ -13,7 +13,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
 
   return (
     <div className={styles.container}>
-      <Grid container spacing={2}>
+      <Grid container spacing={4} justify="center">
         {/* Infected Card */}
         <Grid
           item
